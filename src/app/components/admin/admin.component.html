@@ -1,0 +1,31 @@
+<div class="admin-container">
+<mat-card class="admin-holder">
+  <mat-card-content>
+<mat-tab-group>
+  <mat-tab label="USERS">
+    <div class="expander">
+      <label>Write you Name:</label>
+      <input matInput placeholder="Simple Input" [(ngModel)]="name"/>
+      <h3>Hello {{name}}!</h3>
+    </div>
+
+    <div>
+      <mat-checkbox>Check me!</mat-checkbox>
+    </div>
+  </mat-tab>
+
+  <mat-tab label="CONTENT EDITOR">
+    <p>Content 2</p>
+    <label>Write you Name:</label>
+    <input matInput placeholder="Simple Input" [(ngModel)]="name"/>
+    <h3>Hello {{name}}!</h3>
+
+
+  <mat-checkbox>Check me!</mat-checkbox>
+
+  </mat-tab>
+</mat-tab-group>
+    </mat-card-content>
+    </mat-card>
+
+</div>

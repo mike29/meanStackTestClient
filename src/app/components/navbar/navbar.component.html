@@ -1,0 +1,33 @@
+<!-- Always shows a header, even in smaller screens. -->
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header body-holder">
+  <header class="mdl-layout__header header-holder">
+    <div class="mdl-layout__header-row">
+      <!-- Title -->
+      <a routerLink='/' class="logo">
+       <span class="mdl-layout-title"><h1>ØSTFOLD O-KRETS</h1></span>
+      </a>
+      <!-- Add spacer, to align navigation to the right -->
+      <div class="mdl-layout-spacer"></div>
+      <!-- Navigation. We hide it in small screens. -->
+      <nav class="mdl-navigation mdl-layout--large-screen-only right-navigate">
+        <a class="mdl-navigation__link" routerLink='/admin' >Kart</a>
+        <a class="mdl-navigation__link" routerLink='/edit-map' >Map Editor</a>
+        <a class="mdl-navigation__link" routerLink='/' >Nyheter</a>
+
+      </nav>
+    </div>
+  </header>
+  <div class="mdl-layout__drawer drawer">
+    <span class="mdl-layout-title">ØSTFOLD O-Krets</span>
+    <nav class="mdl-navigation">
+      <a class="mdl-navigation__link" href="">Kart</a>
+      <a class="mdl-navigation__link" href="">Aktiviteter</a>
+      <a class="mdl-navigation__link" href="">Nyhter</a>
+      <a class="mdl-navigation__link" href="">Setting</a>
+    </nav>
+  </div>
+  <main class="mdl-layout__content">
+    <div class="page-content"><!-- Your content goes here --></div>
+  </main>
+</div>
+

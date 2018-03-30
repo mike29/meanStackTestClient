@@ -1,0 +1,93 @@
+<h5>
+  {{title}}
+</h5>
+
+<!-- AUTO-->
+<form class="example-form">
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Søk" aria-label="search">
+    <mat-autocomplete #auto="matAutocomplete">
+      <mat-option>
+        <img style="vertical-align:middle;" aria-hidden src="" height="25" />
+        <span> state.name </span> |
+        <small>Population: state.population</small>
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+
+  <br />
+
+</form>
+
+<!--AUTO END-->
+<!--
+<div>
+<mat-grid-list cols="8" rowHeight="100px">
+  <mat-grid-tile
+    *ngFor="let tile of tiles"
+    [style.background]="tile.color">
+    {{tile.text}}
+  </mat-grid-tile>
+</mat-grid-list>
+</div>-->
+<div>
+
+<mat-card *ngFor="let map of mapData" class="example-card map-card-holder">
+
+  <mat-card-header>
+    <!--  <div mat-card-avatar class="example-header-image"></div> -->
+    <mat-card-title>{{map.Location}}</mat-card-title>
+    <!--  <mat-card-subtitle>Dog Breed</mat-card-subtitle>-->
+    </mat-card-header>
+
+  <img mat-card-image src="{{map.imgURL}}" alt="map description" ng-click="myFunction()">
+  <mat-card-content>
+    <p>
+      {{map.text}}
+    </p>
+  </mat-card-content>
+  <mat-card-actions class="map-buttons-holder">
+    <button mat-button>PRINT</button>
+    <button mat-button>DOWNLOAD</button>
+  </mat-card-actions>
+</mat-card>
+
+</div>
+
+<!-- example codes-->
+
+<div>
+  <label>Write you Name:</label>
+  <input matInput placeholder="Simple Input" [(ngModel)]="name"/>
+  <h3>Hello {{name}}!</h3>
+</div>
+
+<div>
+  <mat-checkbox>Check me!</mat-checkbox>
+</div>
+<div>
+  <mat-slider  class="the-slider"></mat-slider>
+
+  <button mat-button [matMenuTriggerFor]="menu">Menu</button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item>Item 1</button>
+    <button mat-menu-item>Item 2</button>
+  </mat-menu>
+  <mat-form-field>
+    <input matInput placeholder="Simple Input" [(ngModel)]="title">
+  </mat-form-field>
+  <mat-icon>home</mat-icon>
+  <button mat-raised-button>I'm a button</button>
+  <mat-form-field>
+    <mat-select placeholder="I'm a select" [(ngModel)]="selectedValue">
+      <mat-option *ngFor="let item of items" [value]="item.value">
+        {{item.view}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Input">
+  </mat-form-field>
+
+</div>
+

@@ -1,0 +1,38 @@
+/* You can add global styles to this file, and also import other style files */
+/**
+I changed the default style.css file to scss and chenged the default style in .angular-cli json
+to use material for angular
+ */
+
+@import '~@angular/material/theming';
+@import url('//fonts.googleapis.com/icon?family=Material+Icons');
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+
+/**
+This will execute the “mat-core” function, and it adds the default styling for the material components, like colors, padding, overlays and so on.
+ */
+@include mat-core();
+
+//define the colors to use for the theme
+$primary: mat-palette($mat-green, 500);
+$accent:  mat-palette($mat-green, 500, A200, A400);
+$warn:    mat-palette($mat-red, 500);
+
+//Generate theme
+//https://material.angular.io/guide/theming#using-a-pre-built-theme
+$theme: mat-light-theme($primary, $accent, $warn);
+
+@include angular-material-theme($theme);
+
+body {
+  font-family: $mat-font-family;
+  font-weight: normal;
+}
+
+h1, h2, h3, h4 {
+  font-weight: normal;
+}
+.the-slider{
+  color: red;
+}
+

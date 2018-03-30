@@ -1,0 +1,20 @@
+
+.admin-container{
+  width: 1000px;
+  height: 100vh;
+  overflow: hidden;
+}
+.admin-holder{
+  width: inherit;
+  height: inherit;
+
+}
+.demo-tab-group {
+  border: 1px solid #000;
+}
+
+.demo-tab-content {
+  padding: 16px;
+}
+
+
