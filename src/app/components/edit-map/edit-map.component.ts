@@ -1,22 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterContentInit } from '@angular/core';
+import { ScriptService } from './script.service'
 
 
 @Component({
   selector: 'app-edit-map',
   templateUrl: './edit-map.component.html',
   styleUrls: ['./edit-map.component.css'],
-
-
+  providers: [ScriptService]
 })
 
-export class EditMapComponent implements OnInit {
+export class EditMapComponent implements OnInit, AfterContentInit {
 
-  constructor() {
+  constructor(private script: ScriptService) {
 
   }
-
-
-
 
   selectedValue: string = "";
   sizeValue: string = "";
@@ -44,7 +41,12 @@ export class EditMapComponent implements OnInit {
 
 
   ngOnInit() {
+  }
 
+  ngAfterContentInit() {
+    this.script.load('editMap').then(data => {
+      console.log('script loaded ', data);
+    }).catch(error => console.log(error));
   }
 
 }

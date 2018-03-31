@@ -86,8 +86,8 @@ $(document).ready(function() {
               textP = document.createElement('input');
               textP.setAttribute('id','textInput');
               textP.style.position = 'absolute';
-              textP.style.left = x + "px";
-              textP.style.top = y + "px";
+              textP.style.left = x + leftx + "px";
+              textP.style.top = y + topy + "px";
               textX = x * transformScale;
               textY = y * transformScale;
 
@@ -382,14 +382,13 @@ function drawPoint(svgObject,index){
       // This creates a triangle facing up. The path string uses the mouse coordinates and adjusts depending on
       // size selected by the user. To face the triangle the other way, simply change the + and - signs
       // on all the parenthesis calculations
-      size = size/2;
-      drawObject = group.path('M' + (xx + size) + " " + (yy + size) + " L" + (xx - size) + " " + (yy + size)
-        + " L" + xx + " " + (yy - size) + ' Z').id(svgObject.id);
+      drawObject = group.path('M' + (xx + size/2) + " " + (yy + size/2) + " L" + (xx - size/2) + " " + (yy + size/2)
+        + " L" + xx + " " + (yy - size/2) + ' Z').id(svgObject.id);
       drawObject.attr({
         fill: color,
         'fill-opacity': "0.0",
         stroke: color,
-        'stroke-width': size/5
+        'stroke-width': size/10
       });
 
       break;
