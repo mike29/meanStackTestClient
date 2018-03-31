@@ -1,18 +1,18 @@
 <p>MAP EDITOR</p>
-<svg id="svgCanvas">
-  <image xlink:href="http://routegadget.jukola.com/kartat/41.jpg" x="0" y="0" height="550px" width="600px"/>
+<svg id="svgCanvas" height="1350px" width="900px">
+  <image id='image' xlink:href="http://routegadget.jukola.com/kartat/41.jpg" x="0" y="0" height="1350px" width="900px"/>
 </svg>
 
 <br/>
 <mat-form-field>
-  <mat-select id="selectType" placeholder="Select shapes" [(ngModel)]="selectedValue">
+  <mat-select placeholder="Select shapes" [(ngModel)]="selectedValue" [(value)]="selType">
     <mat-option *ngFor="let item of items" [value]="item.value">
       {{item.view}}
     </mat-option>
   </mat-select>
 </mat-form-field>
 <mat-form-field>
-  <mat-select id="selectSize"  placeholder="Select size" [(ngModel)]="sizeValue">
+  <mat-select  placeholder="Select size" [(ngModel)]="sizeValue" [(value)]="selSize">
     <mat-option *ngFor="let size of sizes" [value]="size.value">
       {{size.view}}
     </mat-option>
@@ -20,9 +20,13 @@
 </mat-form-field>
 <mat-checkbox id="autoIndex">Add Numbers to post</mat-checkbox>
 
+<p id="selectType" style="visibility:hidden;position:absolute;top:-100%;left:-100%;">{{selType}}</p>
+<p id="selectSize" style="visibility:hidden;position:absolute;top:-100%;left:-100%;">{{selSize}}</p>
+<div id="writeText"></div>
+
 
 <mat-radio-group class="action-radio-group" [(ngModel)]="stateValue">
-  <mat-radio-button (click)="clickedValue(state.value)" [id]="state.id" class="action-radio-button" *ngFor="let state of states" [value]="state.value" >
+  <mat-radio-button [id]="state.id" class="action-radio-button" *ngFor="let state of states" [value]="state.value" >
     {{state.value}}
   </mat-radio-button>
 </mat-radio-group>
