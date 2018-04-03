@@ -1,18 +1,18 @@
 <p>MAP EDITOR</p>
-<svg id="svgCanvas" height="450px" width="300px">
-  <image id='image' xlink:href="http://routegadget.jukola.com/kartat/41.jpg" x="0" y="0" height="450px" width="300px"/>
+<svg id="svgCanvas">
+  <image xlink:href="http://routegadget.jukola.com/kartat/41.jpg" x="0" y="0" height="550px" width="600px"/>
 </svg>
 
 <br/>
 <mat-form-field>
-  <mat-select placeholder="Select shapes" [(ngModel)]="selectedValue" [(value)]="selType">
+  <mat-select id="selectType" placeholder="Select shapes" [(ngModel)]="selectedValue">
     <mat-option *ngFor="let item of items" [value]="item.value">
       {{item.view}}
     </mat-option>
   </mat-select>
 </mat-form-field>
 <mat-form-field>
-  <mat-select  placeholder="Select size" [(ngModel)]="sizeValue" [(value)]="selSize">
+  <mat-select id="selectSize"  placeholder="Select size" [(ngModel)]="sizeValue">
     <mat-option *ngFor="let size of sizes" [value]="size.value">
       {{size.view}}
     </mat-option>
@@ -20,13 +20,43 @@
 </mat-form-field>
 <mat-checkbox id="autoIndex">Add Numbers to post</mat-checkbox>
 
-<p id="selectType" style="visibility:hidden;position:absolute;top:-100%;left:-100%;">{{selType}}</p>
-<p id="selectSize" style="visibility:hidden;position:absolute;top:-100%;left:-100%;">{{selSize}}</p>
-<div id="writeText"></div>
-
 
 <mat-radio-group class="action-radio-group" [(ngModel)]="stateValue">
-  <mat-radio-button [id]="state.id" class="action-radio-button" *ngFor="let state of states" [value]="state.value" >
+  <mat-radio-button (click)="clickedValue(state.value)" [id]="state.id" class="action-radio-button" *ngFor="let state of states" [value]="state.value" >
     {{state.value}}
   </mat-radio-button>
 </mat-radio-group>
+
+<!--
+<select title="Object type" id="selectType">
+  <option value="0">Post</option>
+  <option value="1">Line</option>
+  <option value="2">Goal</option>
+  <option value="3">Start</option>
+  <option value="4">Text Input</option>
+</select>
+<select title="size" id="selectSize">
+  <option value="5">5</option>
+  <option value="10">10</option>
+  <option value="15">15</option>
+  <option value="20" selected>20</option>
+  <option value="25">25</option>
+  <option value="30">30</option>
+  <option value="35">35</option>
+  <option value="40">40</option>
+</select>
+
+<form id="i">
+  <input type="checkbox" title="Auto generate numbering" id="autoIndex"/>
+  <label for="autoIndex">Automatically add numbering to rings</label>
+</form>
+<Button id="deleteAll">Delete all</button>
+<button id="undo">Delete last</button>
+<form>
+  <input type="radio" name="state" title="Create Element" id="createElement" class="state" checked>
+  <label for="createElement">Create Element <br/></label>
+  <input type="radio" name="state" title="Move Element" id="moveElement" class="state">
+  <label for="moveElement">Move Element <br/></label>
+  <input type="radio" name="state" title="Delete Element" id="deleteElement" class="state"> Delete Element
+</form>
+-->

@@ -1,6 +1,0 @@
-<<<<<<< HEAD
-Mike change 
-=======
-SSS
-testnewline
->>>>>>> d25f78005104339cf9f64a5ae7a957a3eb2caf09

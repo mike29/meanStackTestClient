@@ -1,28 +1,39 @@
-import { Component, OnInit, AfterContentInit } from '@angular/core';
-import { ScriptService } from './script.service'
+import { Component, OnInit } from '@angular/core';
+import Cube from './cube';
 
+
+const getClicked = new Cube();
+
+function checkWindowLoaded(){
+ // getClicked.setTransformScale();
+
+}
 
 @Component({
   selector: 'app-edit-map',
   templateUrl: './edit-map.component.html',
   styleUrls: ['./edit-map.component.css'],
-  providers: [ScriptService]
+
+
 })
 
-export class EditMapComponent implements OnInit, AfterContentInit {
+export class EditMapComponent implements OnInit {
 
-  constructor(private script: ScriptService) {
-
+  constructor() {
   }
 
-  selectedValue: string = "";
-  sizeValue: string = "";
-  items = [
-    { value: "0", view: "POST" },
-    { value: "1", view: "LINE" },
-    { value: "2", view: "GOAL" },
-    { value: "3", view: "START" },
-    { value: "4", view: "TEXT INPUT" }
+   clickedValue (value){
+     console.log(getClicked.cube(value));
+      }
+
+    selectedValue: string = "";
+    sizeValue: string = "";
+    items = [
+      { value: "0", view: "POST" },
+      { value: "1", view: "LINE" },
+      { value: "2", view: "GOAL" },
+      { value: "3", view: "START" },
+      { value: "4", view: "TEXT INPUT" }
     ];
   sizes = [
     { value: "15", view: "15" },
@@ -41,12 +52,7 @@ export class EditMapComponent implements OnInit, AfterContentInit {
 
 
   ngOnInit() {
-  }
-
-  ngAfterContentInit() {
-    this.script.load('editMap').then(data => {
-      console.log('script loaded ', data);
-    }).catch(error => console.log(error));
+    checkWindowLoaded();
   }
 
 }
