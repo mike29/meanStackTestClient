@@ -3,12 +3,12 @@
 @media only screen and (min-width: 600px) {
     /* For tablets: */
     #image {
-        width: 600px;
-        height: 900px;
+        width: 400px;
+        height: 600px;
     }
     #svgCanvas {
-        width: 600px;
-        height: 900px;
+        width: 400px;
+        height: 600px;
     }
 }
 

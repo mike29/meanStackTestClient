@@ -144,8 +144,9 @@ $(document).ready(function() {
   });
 
   /*
-   * Sets position of object to mouse position
-   * */
+  * Triggers moveEvent when mouse moves
+  * Sets position of object to mouse position
+  */
   $("#svgCanvas").mousemove(function(e){
     if(clicking && document.getElementById("moveElement-input").checked){
       $this = $(this);
@@ -176,6 +177,39 @@ $(document).ready(function() {
     }
   });
 
+  $('#svgCanvas').bind('touchmove', function(e)
+  {
+    if(clicking && document.getElementById("moveElement-input").checked){
+      $this = $(this);
+      var topy = $this.offset().top,
+        leftx = $this.offset().left,
+        xx = e.pageX - leftx, yy = e.pageY - topy;
+        console.log("mousemove");
+      if(elem){
+        if(elem.position.length === 4){
+          if(x1 > x2){
+            elem.position[0] = ((xx * transformScale) - xDif);
+            elem.position[2] = ((xx * transformScale) + xDif);
+          } else {
+            elem.position[0] = ((xx * transformScale) + xDif);
+            elem.position[2] = ((xx * transformScale) - xDif);
+          }
+          if(y1 > y2){
+            elem.position[1] = ((yy * transformScale) - yDif);
+            elem.position[3] = ((yy * transformScale) + yDif);
+          } else {
+            elem.position[1] = ((yy * transformScale) + yDif);
+            elem.position[3] = ((yy * transformScale) - yDif);
+          }
+        } else {
+          elem.position = [xx * transformScale,yy * transformScale];
+        }
+      }
+      update();
+    }
+  });
+
+
   /*
    * When user lets go of mouse, stop the mousemove function
    * */
@@ -186,6 +220,7 @@ $(document).ready(function() {
    * Retrieves element user clicks on from the data array
    * */
   $("#svgCanvas").mousedown(function(e){
+    console.log("mousedown");
     if(document.getElementById("moveElement-input").checked) {
       var x = e.clientX,
         y = e.clientY,
@@ -263,14 +298,18 @@ $(document).ready(function() {
 /**
  * transformScale is used to scale the svg elements to the increased/decreased map size.
  * The map size is changed based on media queries for phone, smartphone and desktop.
+ * To get these numbers we take our media query width rules and divide them on each other:
+ * width > 768px is baseline, desktop, 500width on the map
+ * width > 600px is tablet - 400 width: 500/400 = 1.25
+ * width < 600px is smartphone - 300 width: 500/300 = 1.6667
  */
 function setTransformScale(){
   if(Modernizr.mq('(min-width: 768px)')){
     transformScale = 1;
   } else if(Modernizr.mq('(min-width: 600px)')) {
-    transformScale = 0.833;
+    transformScale = 1.25;
   } else {
-    transformScale = 0.556;
+    transformScale = 1.6667;
   }
 }
 
