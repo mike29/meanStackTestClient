@@ -35,27 +35,3 @@ h1, h2, h3, h4 {
 .the-slider{
   color: red;
 }
-
-@media only screen and (min-width: 600px) {
-    /* For tablets: */
-    #image {
-        width: 600px;
-        height: 900px;
-    }
-    #svgCanvas {
-        width: 600px;
-        height: 900px;
-    }
-}
-
-@media only screen and (min-width: 768px) {
-    /* For desktop: */
-    #image {
-        width: 500px;
-        height: 750px;
-    }
-    #svgCanvas {
-        width: 500px;
-        height: 750px;
-    }
-}
